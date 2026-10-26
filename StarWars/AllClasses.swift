@@ -36,7 +36,13 @@ class Movie {
     
     init(title: String, dictionary: [String: Any]) {
         self.title = title
-        self.year = dictionary["Year"] as? Int ?? 0
+        if let year = dictionary["Year"] as? Int {
+            self.year = year
+        } else if let year = dictionary["Year"] as? String, let value = Int(year) {
+            self.year = value
+        } else {
+            self.year = 0
+        }
         self.director = dictionary["Director"] as? String ?? ""
         self.runtime = dictionary["Runtime"] as? String ?? ""
         self.posterName = dictionary["Poster"] as? String ?? ""
@@ -59,5 +65,3 @@ class MovieCategory {
         self.movies = movies
     }
 }
-
-

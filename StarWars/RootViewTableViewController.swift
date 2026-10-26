@@ -9,8 +9,8 @@ import UIKit
 
 class RootViewTableViewController: UITableViewController {
 
-    var dictionary:NSDictionary?
-    var movieCategories: [MovieCategory]
+    var dictionary: [String: Any] = [:]
+    var movieCategories: [MovieCategory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +20,25 @@ class RootViewTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        let bundleURL = Bundle.main.url(forResource: "movies", withExtension: "plist")!
-        dictionary = NSDictionary(contentsOf: bundleURL)
-        for key in dictionary?.allKeys as [String] {
-            let catMovies:[Movie] = []
-            let category = dictionary?[key] as NSDictionary?
-            for movie in category?.allKeys as [String] {
-                catMovies.append(Movie(title: movie, dictionary: category[movie]))
+        guard let bundleURL = Bundle.main.url(forResource: "movies", withExtension: "plist"),
+              let plist = NSDictionary(contentsOf: bundleURL) as? [String: Any] else {
+            return
+        }
+
+        dictionary = plist
+        for key in dictionary.keys.sorted() {
+            guard let category = dictionary[key] as? [String: Any] else {
+                continue
             }
-            movieCategories.append(movieCategory(key, catMovies))
+
+            var categoryMovies: [Movie] = []
+            for movieTitle in category.keys.sorted() {
+                guard let movieDictionary = category[movieTitle] as? [String: Any] else {
+                    continue
+                }
+                categoryMovies.append(Movie(title: movieTitle, dictionary: movieDictionary))
+            }
+            movieCategories.append(MovieCategory(name: key, movies: categoryMovies))
         }
         self.title = "Star Wars movies"
     }
@@ -36,13 +46,11 @@ class RootViewTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return movieCategories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movieCategories[section].movies.count
     }
 
     /*
@@ -93,7 +101,7 @@ class RootViewTableViewController: UITableViewController {
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do something in the destination view controller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
