@@ -1,0 +1,22 @@
+name: Build
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build StarWars
+        run: |
+          xcodebuild \
+            -project StarWars.xcodeproj \
+            -target StarWars \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            IPHONEOS_DEPLOYMENT_TARGET=18.0 \
+            CODE_SIGNING_ALLOWED=NO \
+            build
