@@ -9,38 +9,47 @@ import UIKit
 
 class RootViewTableViewController: UITableViewController {
 
-    var dictionary: [String: Any] = [:]
     var movieCategories: [MovieCategory] = []
+    private var selectedMovie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        guard let bundleURL = Bundle.main.url(forResource: "movies", withExtension: "plist"),
+        
+        guard let bundleURL = Bundle.main.url(forResource: "movies", withExtension: "plist")
+                ?? Bundle.main.url(forResource: "movies", withExtension: "plist", subdirectory: "Resource"),
               let plist = NSDictionary(contentsOf: bundleURL) as? [String: Any] else {
             return
         }
-
-        dictionary = plist
-        for key in dictionary.keys.sorted() {
-            guard let category = dictionary[key] as? [String: Any] else {
+        
+        var parsedCategories: [MovieCategory] = []
+        for key in plist.keys.sorted() {
+            guard let category = plist[key] as? [String: Any] else {
                 continue
             }
-
-            var categoryMovies: [Movie] = []
-            for movieTitle in category.keys.sorted() {
+            
+            var movies: [Movie] = []
+            for movieTitle in category.keys {
                 guard let movieDictionary = category[movieTitle] as? [String: Any] else {
                     continue
                 }
-                categoryMovies.append(Movie(title: movieTitle, dictionary: movieDictionary))
+                movies.append(Movie(title: movieTitle, dictionary: movieDictionary))
             }
-            movieCategories.append(MovieCategory(name: key, movies: categoryMovies))
+            
+            let orderedMovies = movies.sorted {
+                if $0.year == $1.year {
+                    return $0.title < $1.title
+                }
+                return $0.year < $1.year
+            }
+            parsedCategories.append(MovieCategory(name: key, movies: orderedMovies))
         }
+        
+        movieCategories = parsedCategories.sorted {
+            ($0.movies.first?.year ?? Int.max) < ($1.movies.first?.year ?? Int.max)
+        }
+        
         self.title = "Star Wars movies"
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -52,16 +61,43 @@ class RootViewTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieCategories[section].movies.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let movie = movieCategories[indexPath.section].movies[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell")
+            ?? UITableViewCell(style: .default, reuseIdentifier: "MovieCell")
+        
+        cell.textLabel?.text = movie.title
+        cell.textLabel?.numberOfLines = 1
+        
+        let thumbnailView = UIImageView(image: UIImage(named: movie.thumbnailName))
+        thumbnailView.contentMode = .scaleAspectFit
+        thumbnailView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        cell.accessoryView = thumbnailView
+        
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return movieCategories[section].name
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMovie = movieCategories[indexPath.section].movies[indexPath.row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "Ehr-E0-1di",
+              let destination = segue.destination as? MovieViewController else {
+            return
+        }
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destination.movie = movieCategories[indexPath.section].movies[indexPath.row]
+        } else {
+            destination.movie = selectedMovie
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
