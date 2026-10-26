@@ -17,6 +17,20 @@ jobs:
             -configuration Debug \
             -sdk iphonesimulator \
             -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build/DerivedData \
             IPHONEOS_DEPLOYMENT_TARGET=18.0 \
             CODE_SIGNING_ALLOWED=NO \
             build
+      - name: Package app
+        run: |
+          APP_PATH=$(find build/DerivedData/Build/Products -type d -name "StarWars.app" | head -n 1)
+          if [ -z "$APP_PATH" ]; then
+            echo "Built app bundle was not found."
+            exit 1
+          fi
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" StarWars.app.zip
+      - name: Upload app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StarWars-app
+          path: StarWars.app.zip
