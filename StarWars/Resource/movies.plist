@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Prequels</key>
+	<dict>
+		<key>The Phantom Menace</key>
+		<dict>
+			<key>Year</key>
+			<string>1999</string>
+			<key>Runtime</key>
+			<string>2h 16m</string>
+			<key>Director</key>
+			<string>George Lucas</string>
+			<key>Cast</key>
+			<array>
+				<string>Ewan McGregor;Obi-Wan Kenobi</string>
+				<string>Liam Neeson;Qui Gon Jin</string>
+				<string>Natalie Portman;Padme Amidala</string>
+				<string>Jake Lloyd;Anakin Skywalker</string>
+				<string>Ian McDiarmid;Chancelor Palpatine</string>
+			</array>
+			<key>Poster</key>
+			<string>TPM</string>
+		</dict>
+		<key>Attack of the Clones</key>
+		<dict>
+			<key>Year</key>
+			<string>2002</string>
+			<key>Runtime</key>
+			<string>2h 22m</string>
+			<key>Director</key>
+			<string>George Lucas</string>
+			<key>Cast</key>
+			<array>
+				<string>Ewan McGregor;Obi-Wan Kenobi</string>
+				<string>Hayden Christensen;Anakin Skywalker</string>
+				<string>Natalie Portman;Padme Amidala</string>
+				<string>Christopher Lee;Count Dooku</string>
+				<string>Ian McDiarmid;Chancelor Palpatine</string>
+				<string>Frank Oz;Yoda</string>
+			</array>
+			<key>Poster</key>
+			<string>AOTC</string>
+		</dict>
+		<key>Revenge of the Sith</key>
+		<dict>
+			<key>Year</key>
+			<string>2005</string>
+			<key>Runtime</key>
+			<string>2h 20m</string>
+			<key>Director</key>
+			<string>George Lucas</string>
+			<key>Cast</key>
+			<array>
+				<string>Ewan McGregor;Obi-Wan Kenobi</string>
+				<string>Anthony Daniels;C3PO</string>
+				<string>Natalie Portman;Padme Amidala</string>
+				<string>Samuel L. Jackson;Mace Windu</string>
+				<string>Ian McDiarmid;Emperor Palpatine</string>
+			</array>
+			<key>Poster</key>
+			<string>ROTS</string>
+		</dict>
+	</dict>
+	<key>Original trilogy</key>
+	<dict>
+		<key>A New Hope</key>
+		<dict>
+			<key>Year</key>
+			<string>1977</string>
+			<key>Runtime</key>
+			<string>2h 1m</string>
+			<key>Director</key>
+			<string>George Lucas</string>
+			<key>Cast</key>
+			<array>
+				<string>Mark Hamill;Luke Skywalker</string>
+				<string>Harrison Ford;Han Solo</string>
+				<string>Carrie Fisher; Leia Organa</string>
+				<string>James Earl-Jones; Darth Vader (voice)</string>
+				<string>Alec Guinness;Obi-Wan Kenobi</string>
+				<string>David Prowse;Darth Vader</string>
+			</array>
+			<key>Poster</key>
+			<string>ANH</string>
+		</dict>
+		<key>The Empire Strikes Back</key>
+		<dict>
+			<key>Year</key>
+			<string>1980</string>
+			<key>Runtime</key>
+			<string>2h 4m</string>
+			<key>Director</key>
+			<string>Irvin Kershner</string>
+			<key>Cast</key>
+			<array>
+				<string>Mark Hamil;Luke Skywalker</string>
+				<string>Carrie Fisher;Leia Organa</string>
+				<string>Harrison Ford;Han Solo</string>
+				<string>Alec Guiness;Obi-Wan Kenobi</string>
+				<string>Billy Dee Williams;Lando Calrissian</string>
+				<string>Frank Oz;Yoda</string>
+			</array>
+			<key>Poster</key>
+			<string>TESB</string>
+		</dict>
+		<key>Return of the Jedi</key>
+		<dict>
+			<key>Year</key>
+			<string>1983</string>
+			<key>Runtime</key>
+			<string>2h 11m</string>
+			<key>Director</key>
+			<string>Richard Marquand</string>
+			<key>Cast</key>
+			<array>
+				<string>Mark Hamil;Luke Skywalker</string>
+				<string>Harrison Ford;Han Solo</string>
+				<string>Carrie Fisher;Leia Organa</string>
+				<string>Alec Guiness;Obi-Wan Kenobi</string>
+				<string>Ian McDiarmid;Emperor Palpatine</string>
+				<string>Frank Oz; Yoda</string>
+			</array>
+			<key>Poster</key>
+			<string>ROTJ</string>
+		</dict>
+	</dict>
+	<key>Sequels</key>
+	<dict>
+		<key>The Force Awakens</key>
+		<dict>
+			<key>Year</key>
+			<string>2015</string>
+			<key>Runtime</key>
+			<string>2h 18m</string>
+			<key>Director</key>
+			<string>J.J. Abrams</string>
+			<key>Cast</key>
+			<array>
+				<string>Daisy Ridley;Rey</string>
+				<string>John Boyega;Finn</string>
+				<string>Oscar Isaac;Poe Dameron</string>
+				<string>Harrison Ford;Han Solo</string>
+				<string>Carrie Fisher;Leia Organa</string>
+				<string>Adam Driver;Kylo Ren</string>
+				<string>Mark Hamill;Luke Skywalker</string>
+			</array>
+			<key>Poster</key>
+			<string>TFA</string>
+		</dict>
+		<key>The Last Jedi</key>
+		<dict>
+			<key>Year</key>
+			<string>2017</string>
+			<key>Runtime</key>
+			<string>2h 32m</string>
+			<key>Director</key>
+			<string>Rian Johnson</string>
+			<key>Cast</key>
+			<array>
+				<string>Daisy Ridley;Rey</string>
+				<string>John Boyega;Finn</string>
+				<string>Oscar Isaac;Poe Dameron</string>
+				<string>Andy Serkis;Snoke</string>
+				<string>Mark Hamill;Luke Skywalker</string>
+				<string>Carrie Fisher;Leia Organa</string>
+			</array>
+			<key>Poster</key>
+			<string>TLJ</string>
+		</dict>
+		<key>The Rise of Skywalker</key>
+		<dict>
+			<key>Year</key>
+			<string>2019</string>
+			<key>Runtime</key>
+			<string>2h 21m</string>
+			<key>Director</key>
+			<string>J.J. Abrams</string>
+			<key>Cast</key>
+			<array>
+				<string>Daisy Ridley;Rey</string>
+				<string>John Boyega;Finn</string>
+				<string>Oscar Isaac;Poe Dameron</string>
+				<string>Adam Driver;Kylo Ren</string>
+				<string>Mark Hamill;Luke Skywalker</string>
+				<string>Ian McDiarmid;Lord Siduous</string>
+			</array>
+			<key>Poster</key>
+			<string>TROS</string>
+		</dict>
+	</dict>
+	<key>Spin-offs</key>
+	<dict>
+		<key>Rogue One</key>
+		<dict>
+			<key>Year</key>
+			<string>2016</string>
+			<key>Runtime</key>
+			<string>2h 13m</string>
+			<key>Director</key>
+			<string>Gareth Edwards</string>
+			<key>Cast</key>
+			<array>
+				<string>Felicity Jones;Jyn Erso</string>
+				<string>Diego Luna;Cassian Andor</string>
+				<string>Alan Tudyk;K-2SO</string>
+				<string>Donnie Yen;Chirrut Îmwe</string>
+				<string>Wen Jiang;Baze Malbus</string>
+				<string>Ben Mendelsohn;Orson Krennic</string>
+				<string>Mads Mikkelsen;Galen Erso</string>
+			</array>
+			<key>Poster</key>
+			<string>RO</string>
+		</dict>
+		<key>Solo</key>
+		<dict>
+			<key>Year</key>
+			<string>2018</string>
+			<key>Runtime</key>
+			<string>2h 15m</string>
+			<key>Director</key>
+			<string>Ron Howard</string>
+			<key>Cast</key>
+			<array>
+				<string>Alden Ehrenreich;Han Solo</string>
+				<string>Woody Harrelson;Beckett</string>
+				<string>Donald Glover;Lando Calrissian</string>
+				<string>Emilia Clarke;Qi&apos;ra</string>
+				<string>Thandiwe Newton;Val</string>
+				<string>Paul Bettany;Dryden Vos</string>
+			</array>
+			<key>Poster</key>
+			<string>Solo</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
